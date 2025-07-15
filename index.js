@@ -16,7 +16,13 @@ const PORT = process.env.PORT || 3002;
 const MONGO_URL = process.env.MONGO_URL;
 
 // ✅ Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://frontend-iota-livid.vercel.app",
+    "https://frontend-your-main.vercel.app" // optional, add your production domain here too
+  ],
+  credentials: true, // optional: if using cookies
+}));
 app.use(express.json());
 app.use(passport.initialize());
 
