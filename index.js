@@ -15,9 +15,6 @@ const app = express();
 const PORT = process.env.PORT || 3002;
 const MONGO_URL = process.env.MONGO_URL;
 
-// ✅ Middleware
-const cors = require("cors");
-
 app.use(cors({
   origin: [
     "https://dashboard-six-kappa-11.vercel.app",
