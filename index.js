@@ -19,7 +19,6 @@ const MONGO_URL = process.env.MONGO_URL;
 app.use(cors({
   origin: [
     "https://frontend-iota-livid.vercel.app",
-    "https://frontend-your-main.vercel.app" // optional, add your production domain here too
   ],
   credentials: true, // optional: if using cookies
 }));
