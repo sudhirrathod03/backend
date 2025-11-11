@@ -18,7 +18,8 @@ const MONGO_URL = process.env.MONGO_URL;
 app.use(cors({
   origin: [
     "https://dashboard-six-kappa-11.vercel.app",
-    "https://frontend-iota-livid.vercel.app"
+    "https://frontend-iota-livid.vercel.app",
+
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
@@ -28,7 +29,7 @@ app.use(cors({
 app.use(express.json());
 app.use(passport.initialize());
 
-// ✅ Routes
+//  Routes
 app.use("/api/auth", authRoutes);
 
 app.get("/getHoldings", async (req, res) => {
@@ -57,7 +58,7 @@ app.get("/getPositions", async (req, res) => {
   res.send(allPositions);
 });
 
-// ✅ Protected Route
+
 app.get(
   "/dashboard",
   passport.authenticate("jwt", { session: false }),
@@ -68,7 +69,7 @@ app.get(
 );
 
 
-// ✅ Start after DB Connect
+// Start after DB Connect
 mongoose
   .connect(MONGO_URL)
   .then(() => {
