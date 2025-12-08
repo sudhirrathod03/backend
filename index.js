@@ -32,11 +32,21 @@ app.use(passport.initialize());
 //  Routes
 app.use("/api/auth", authRoutes);
 
-app.get("/getHoldings", async (req, res) => {
-  const allHoldings = await HoldingsModel.find({});
-  res.send(allHoldings);
-});
+// app.get("/getHoldings", async (req, res) => {
+//   const allHoldings = await HoldingsModel.find({});
+//   res.send(allHoldings);
+// });
 
+app.get("/getHoldings", async (req, res) => {
+  try {
+    const allHoldings = await HoldingsModel.find({});
+    res.json(allHoldings); // <--- Use res.json()
+  } catch (error) {
+    // Crucial: Handle DB errors and return a 500 status with JSON
+    console.error("DB error fetching holdings:", error);
+    res.status(500).json({ error: "Failed to fetch holdings data." });
+  }
+});
 app.post("/newOrder", async (req, res) => {
   const newOrder = new OrdersModel({
     name: req.body.name,
