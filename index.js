@@ -19,6 +19,7 @@ app.use(cors({
   origin: [
     "https://dashboard-six-kappa-11.vercel.app",
     "https://frontend-iota-livid.vercel.app",
+    "https://dashboard-git-main-sudhir-rathods-projects.vercel.app"
 
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
