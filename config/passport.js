@@ -4,7 +4,6 @@ const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.JWT_SECRET || "sudhir2003",
 };
-
 module.exports = (passport) => {
   passport.use(
     new Strategy(opts, async (jwt_payload, done) => {
